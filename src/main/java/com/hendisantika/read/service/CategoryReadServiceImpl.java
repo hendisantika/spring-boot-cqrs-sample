@@ -3,6 +3,7 @@ package com.hendisantika.read.service;
 import com.hendisantika.read.dto.CategoryReadDTO;
 import com.hendisantika.read.mapper.CategoryMapper;
 import com.hendisantika.repository.CategoryRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,6 +45,14 @@ public class CategoryReadServiceImpl implements CategoryReadService {
         return categoryRepository.findByActiveTrue()
                 .stream()
                 .map(categoryMapper::convertToReadDTO)
+                .collect(Collectors.toList());
+    }
+
+
+    @Override
+    public List<CategoryReadDTO> getPage(Pageable pageable) {
+        return categoryRepository.findByActiveTrue(pageable).getContent()
+                .stream().map(categoryMapper::convertToReadDTO)
                 .collect(Collectors.toList());
     }
 }
