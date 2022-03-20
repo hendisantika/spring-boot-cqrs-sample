@@ -1,9 +1,13 @@
 package com.hendisantika.read.service;
 
+import com.hendisantika.read.dto.CategoryReadDTO;
 import com.hendisantika.read.mapper.CategoryMapper;
 import com.hendisantika.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,5 +29,13 @@ public class CategoryReadServiceImpl implements CategoryReadService {
     public CategoryReadServiceImpl(CategoryRepository categoryRepository, CategoryMapper categoryMapper) {
         this.categoryRepository = categoryRepository;
         this.categoryMapper = categoryMapper;
+    }
+
+    @Override
+    public List<CategoryReadDTO> getAll() {
+        return categoryRepository.findAll()
+                .stream()
+                .map(categoryMapper::convertToReadDTO)
+                .collect(Collectors.toList());
     }
 }
