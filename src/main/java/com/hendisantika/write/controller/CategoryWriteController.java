@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,5 +35,11 @@ public class CategoryWriteController {
     public ResponseEntity<Void> store(CategoryWriteDTO category) {
         categoryWriteService.store(category);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> update(CategoryWriteDTO category) {
+        categoryWriteService.update(category);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
