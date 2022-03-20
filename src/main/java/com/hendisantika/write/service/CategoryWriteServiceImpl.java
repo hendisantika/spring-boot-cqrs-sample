@@ -42,4 +42,9 @@ public class CategoryWriteServiceImpl implements CategoryWriteService {
     public void deactivate(Long id) {
         categoryRepository.deactivate(id);
     }
+
+    @Override
+    public void delete(Long id) {
+        categoryRepository.deleteById(id);
+    }
 }
