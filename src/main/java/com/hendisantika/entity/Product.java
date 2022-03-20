@@ -1,7 +1,9 @@
 package com.hendisantika.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -27,6 +29,8 @@ import java.util.Date;
 @Setter
 @DynamicInsert
 @DynamicUpdate
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 2020081313570000L;

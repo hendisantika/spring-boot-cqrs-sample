@@ -1,7 +1,9 @@
 package com.hendisantika.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -28,6 +30,8 @@ import java.util.List;
 @Setter
 @DynamicInsert
 @DynamicUpdate
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category implements Serializable {
 
     private static final long serialVersionUID = 2020081313470000L;
