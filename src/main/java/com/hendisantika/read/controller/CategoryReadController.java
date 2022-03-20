@@ -38,4 +38,10 @@ public class CategoryReadController {
         List<CategoryReadDTO> categories = categoryReadService.getAll();
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/active")
+    public ResponseEntity<List<CategoryReadDTO>> getAllActive() {
+        List<CategoryReadDTO> categories = categoryReadService.getAllActive();
+        return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
 }
