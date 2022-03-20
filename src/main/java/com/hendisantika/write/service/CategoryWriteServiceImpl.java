@@ -1,6 +1,8 @@
 package com.hendisantika.write.service;
 
+import com.hendisantika.entity.Category;
 import com.hendisantika.repository.CategoryRepository;
+import com.hendisantika.write.dto.CategoryWriteDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,5 +24,11 @@ public class CategoryWriteServiceImpl implements CategoryWriteService {
 
     public CategoryWriteServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
+    }
+
+    @Override
+    public void store(CategoryWriteDTO category) {
+        Category categoryEntity = new Category(category.getName(), category.getDescription());
+        categoryRepository.save(categoryEntity);
     }
 }
