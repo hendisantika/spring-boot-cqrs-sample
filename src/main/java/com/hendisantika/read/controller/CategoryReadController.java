@@ -3,6 +3,7 @@ package com.hendisantika.read.controller;
 import com.hendisantika.read.dto.CategoryReadDTO;
 import com.hendisantika.read.service.CategoryReadService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +43,12 @@ public class CategoryReadController {
     @GetMapping(value = "/active")
     public ResponseEntity<List<CategoryReadDTO>> getAllActive() {
         List<CategoryReadDTO> categories = categoryReadService.getAllActive();
+        return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/page")
+    public ResponseEntity<List<CategoryReadDTO>> getPage(Pageable pageable) {
+        List<CategoryReadDTO> categories = categoryReadService.getPage(pageable);
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 }
