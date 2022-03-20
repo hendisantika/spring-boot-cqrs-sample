@@ -1,6 +1,9 @@
 spring:
   application:
     name: Spring REST API based on CQRS
+  flyway:
+    locations: classpath:db/migration
+    baseline-on-migrate: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cqrs?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Jakarta&useSSL=false&allowPublicKeyRetrieval=true
@@ -14,7 +17,7 @@ spring:
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
   jpa:
-    generate-ddl: true
+    generate-ddl: false
     database-platform: org.hibernate.dialect.MySQL8Dialect
     database: MYSQL
     show_sql: true
@@ -25,7 +28,7 @@ spring:
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
   jackson:
     serialization:
       write_dates_as_timestamps: false
