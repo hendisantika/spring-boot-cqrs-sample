@@ -5,10 +5,7 @@ import com.hendisantika.write.service.CategoryWriteService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -40,6 +37,12 @@ public class CategoryWriteController {
     @PutMapping
     public ResponseEntity<Void> update(CategoryWriteDTO category) {
         categoryWriteService.update(category);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Void> deactivate(@PathVariable Long id) {
+        categoryWriteService.deactivate(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
