@@ -37,4 +37,9 @@ public class CategoryWriteServiceImpl implements CategoryWriteService {
         Category categoryEntity = new Category(category.getId(), category.getName(), category.getDescription());
         categoryRepository.save(categoryEntity);
     }
+
+    @Override
+    public void deactivate(Long id) {
+        categoryRepository.deactivate(id);
+    }
 }
