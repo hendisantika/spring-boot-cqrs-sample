@@ -7,3 +7,9 @@
 3. Replace MySQL credentials with your own in application.yml file
 4. Run the application: `mvn clean spring-boot:run`
 5. Open your favorite browser: http://localhost:8080/api/swagger-ui
+
+### Image Screen shot
+
+Swagger UI
+
+![Swagger UI](img/SwaggerUI.png "Swagger UI")
