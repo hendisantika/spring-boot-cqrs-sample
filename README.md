@@ -1,5 +1,16 @@
 # spring-boot-cqrs-sample
 
+# Command Query Responsibility Segregation
+
+CQRS stands for Command Query Responsibility Segregation. its heart is the notion that you can use a different model to
+update information than the model you use to read information.
+
+For some situations, this separation can be valuable, but beware that for most systems CQRS adds risky complexity.
+
+## CQRS Model
+
+![CQRS Model](img/single-model.png "CQRS Model")
+
 ### Things to do list:
 
 1. Clone this repository: `git clone https://github.com/hendisantika/spring-boot-cqrs-sample.git`
