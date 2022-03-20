@@ -38,4 +38,12 @@ public class CategoryReadServiceImpl implements CategoryReadService {
                 .map(categoryMapper::convertToReadDTO)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<CategoryReadDTO> getAllActive() {
+        return categoryRepository.findByActiveTrue()
+                .stream()
+                .map(categoryMapper::convertToReadDTO)
+                .collect(Collectors.toList());
+    }
 }
