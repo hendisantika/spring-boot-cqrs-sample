@@ -1,9 +1,24 @@
+application-description: '@project.description@'
+application-version: "@project.version@"
+# swagger-ui custom path
+springdoc:
+  swagger-ui.path: /swagger-ui.html
+  api-docs.path: /v3/api-docs
+
 spring:
   application:
     name: Spring REST API based on CQRS
   flyway:
     locations: classpath:db/migration
     baseline-on-migrate: true
+  version: '@springdoc.version@'
+  swagger-ui:
+    display-request-duration: true
+    groups-order: DESC
+    operationsSorter: method
+    disable-swagger-default-url: true
+    use-root-path: true
+  show-actuator: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cqrs?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Jakarta&useSSL=false&allowPublicKeyRetrieval=true
