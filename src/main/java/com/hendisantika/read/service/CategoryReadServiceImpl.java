@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -48,11 +49,15 @@ public class CategoryReadServiceImpl implements CategoryReadService {
                 .collect(Collectors.toList());
     }
 
-
     @Override
     public List<CategoryReadDTO> getPage(Pageable pageable) {
         return categoryRepository.findByActiveTrue(pageable).getContent()
                 .stream().map(categoryMapper::convertToReadDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<CategoryReadDTO> getById(Long id) {
+        return categoryRepository.findById(id).map(categoryMapper::convertToReadDTO);
     }
 }
